@@ -1,0 +1,3 @@
+[flake8]
+ignore = E501,E126,E127,E128, W292, W291, W391
+exclude = .git, docs, log, migrations, scripts, tests, venv
