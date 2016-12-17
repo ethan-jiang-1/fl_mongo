@@ -40,7 +40,7 @@ class StagingConfig(BaseConfig):
     DEBUG = False
     TESTING = False
 
-    SERVER_NAME = "test.mygululu.com"
+    SERVER_NAME = "test.mysite.com"
 
     @staticmethod
     def init_app(app):
@@ -53,7 +53,7 @@ class ProductionConfig(BaseConfig):
     DEBUG = False
     TESTING = False
 
-    SERVER_NAME = "production.mygululu.com"
+    SERVER_NAME = "production.mysite.com"
 
     @staticmethod
     def init_app(app):
@@ -66,7 +66,7 @@ class TestConfig(BaseConfig):
     DEBUG = True
     TESTING = True
 
-    SERVER_NAME = "test.mygululu.com"
+    SERVER_NAME = "test.mysite.com"
 
     @staticmethod
     def init_app(app):
