@@ -1,6 +1,6 @@
 from flask import Flask
 from .config import config, APP_VERSION
-
+from .extensions import mongo
 
 # flask app for main
 def create_app(config_name, app_config_extra=None):
@@ -14,6 +14,8 @@ def create_app(config_name, app_config_extra=None):
 
     # init application config
     app.config.from_object(app_config)
+
+    mongo.init_app(app)
 
     return app
 

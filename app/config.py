@@ -18,6 +18,9 @@ class BaseConfig(object):
     APP_ROOT_DIR = _basedir                            # the root of the app
     PRJ_ROOT_DIR = os.path.normpath(_basedir + "/..")  # the root of the project
 
+
+    MONGO_URI = "mongodb://localhost:27017/fm_base"
+
     @staticmethod
     def init_app(app):
         pass
@@ -28,6 +31,8 @@ class DevelopmentConfig(BaseConfig):
 
     DEBUG = True
     TESTING = False
+
+    MONGO_URI = "mongodb://localhost:27017/fm_development"
 
     @staticmethod
     def init_app(app):
@@ -42,6 +47,8 @@ class StagingConfig(BaseConfig):
 
     SERVER_NAME = "test.mysite.com"
 
+    MONGO_URI = "mongodb://localhost:27017/fm_staging"
+
     @staticmethod
     def init_app(app):
         pass
@@ -55,6 +62,8 @@ class ProductionConfig(BaseConfig):
 
     SERVER_NAME = "production.mysite.com"
 
+    MONGO_URI = "mongodb://localhost:27017/fm_production"
+
     @staticmethod
     def init_app(app):
         pass
@@ -67,6 +76,9 @@ class TestConfig(BaseConfig):
     TESTING = True
 
     SERVER_NAME = "test.mysite.com"
+
+    MONGO_URI = "mongodb://localhost:27017/fm_test"
+
 
     @staticmethod
     def init_app(app):
