@@ -3,6 +3,7 @@
 from app.config import config
 from app.main import create_app
 from flask_script import Manager
+from app.utils_manage.list_all_routes import list_all_routes
 
 
 def create_app_for_manager(config_name=None, mulitple_app_mode=None):
@@ -29,6 +30,15 @@ def create_app_for_manager(config_name=None, mulitple_app_mode=None):
 manager = Manager(create_app_for_manager)
 manager.add_option('-c', '--config', help='config_name: development,test,production or default', dest='config_name', required=False)
 # manager.add_command('db', MigrateCommand)
+
+
+@manager.command
+def list_routes():
+    """List all routes for the application"""
+    output = list_all_routes(manager.app)
+
+    for line in sorted(output):
+        print line
 
 
 if __name__ == '__main__':

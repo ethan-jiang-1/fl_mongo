@@ -1,6 +1,7 @@
 from flask import Flask
 from .config import config, APP_VERSION
-from .extensions import mongo
+from .extensions import mongo, mdb
+
 
 # flask app for main
 def create_app(config_name, app_config_extra=None):
@@ -16,8 +17,26 @@ def create_app(config_name, app_config_extra=None):
     app.config.from_object(app_config)
 
     mongo.init_app(app)
+    mdb.init_app(app)
+
+    app_add_blueprints(app)
 
     return app
+
+
+# add all blueprints 
+def app_add_blueprints(app):
+    from app.pages_root.views import add_blueprint_pages_root
+    add_blueprint_pages_root(app)
+
+    from app.pages_exam_db.views import add_blueprint_pages_exam_db
+    add_blueprint_pages_exam_db(app)
+
+    from app.pages_exam_mdb.views import add_blueprint_pages_exam_mdb
+    add_blueprint_pages_exam_mdb(app)
+
+    from app.pages_exam_mix.views import add_blueprint_pages_exam_mix
+    add_blueprint_pages_exam_mix(app)
 
 
 # init app configurateion - factory mode

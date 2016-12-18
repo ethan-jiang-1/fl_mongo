@@ -18,8 +18,13 @@ class BaseConfig(object):
     APP_ROOT_DIR = _basedir                            # the root of the app
     PRJ_ROOT_DIR = os.path.normpath(_basedir + "/..")  # the root of the project
 
+    MONGO_URI = "mongodb://localhost:27017/pym_base"
 
-    MONGO_URI = "mongodb://localhost:27017/fm_base"
+    MONGODB_DB = 'mdb_base'
+    MONGODB_HOST = "localhost"
+    MONGODB_PORT = 27017
+    # MONGODB_USERNAME
+    # MONGODB_PASSWORD
 
     @staticmethod
     def init_app(app):
@@ -32,7 +37,11 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = False
 
-    MONGO_URI = "mongodb://localhost:27017/fm_development"
+    MONGO_URI = "mongodb://localhost:27017/pym_development"
+
+    MONGODB_DB = 'mdb_development'
+    MONGODB_HOST = "localhost"
+    MONGODB_PORT = 27017
 
     @staticmethod
     def init_app(app):
@@ -47,7 +56,11 @@ class StagingConfig(BaseConfig):
 
     SERVER_NAME = "test.mysite.com"
 
-    MONGO_URI = "mongodb://localhost:27017/fm_staging"
+    MONGO_URI = "mongodb://localhost:27017/pym_staging"
+
+    MONGODB_DB = 'mdb_staging'
+    MONGODB_HOST = "localhost"
+    MONGODB_PORT = 27017
 
     @staticmethod
     def init_app(app):
@@ -62,7 +75,11 @@ class ProductionConfig(BaseConfig):
 
     SERVER_NAME = "production.mysite.com"
 
-    MONGO_URI = "mongodb://localhost:27017/fm_production"
+    MONGO_URI = "mongodb://localhost:27017/pym_production"
+
+    MONGODB_DB = 'mdb_production'
+    MONGODB_HOST = "localhost"
+    MONGODB_PORT = 27017
 
     @staticmethod
     def init_app(app):
@@ -77,8 +94,11 @@ class TestConfig(BaseConfig):
 
     SERVER_NAME = "test.mysite.com"
 
-    MONGO_URI = "mongodb://localhost:27017/fm_test"
+    MONGO_URI = "mongodb://localhost:27017/pym_test"
 
+    MONGODB_DB = 'mdb_test'
+    MONGODB_HOST = "localhost"
+    MONGODB_PORT = 27017
 
     @staticmethod
     def init_app(app):
